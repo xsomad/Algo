@@ -12,7 +12,7 @@
                         <div class="col-lg">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img src="<?= ('assets/img/logo/somad.jpg') ?>" width="75px" height="75px" class="img-fluid mb-2" alt="Responsive image">
+                                    <img src="<?= base_url('assets/img/logo/somad.jpg') ?>" width="75px" height="75px" class="img-fluid mb-2" alt="Responsive image">
                                     <hr>
                                     <h2 ><b class="text-danger mb-4">SiAR</b></h1>
                                 </div>
