@@ -14,7 +14,8 @@
                                 <div class="text-center">
                                     <img src="<?= base_url('assets/img/logo/somad.jpg') ?>" width="75px" height="75px" class="img-fluid mb-2" alt="Responsive image">
                                     <hr>
-                                    <h2 ><b class="text-danger mb-4">SiAR</b></h1>
+                                    <h2 ><b class="text-danger mb-4">SiPR</b></h1>
+                                    <p>Sistem Informasi Penggunaan Ruangan</p>
                                 </div>
 
                                 <?= $this->session->flashdata('message'); ?>
@@ -36,7 +37,7 @@
                                 <div class="text-center">
                                     <font style="font-size: 12px">Copyright &#64; <?= date('Y') ?>  
                                     </font>
-                                    <font style="font-size: 12px" color="#B22222">SiAR</font> <font style="font-size: 12px" color="#808080">by.dir/w | V. 1.0,00</font>
+                                    <font style="font-size: 12px" color="#B22222">SiPR</font> <font style="font-size: 12px" color="#808080">by.dir/w | V. 1.0,00</font>
                                     <!-- <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
                                 </div>
                                 <div class="text-center">
