@@ -54,15 +54,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger" id="newMenuModalLabel">Add Anggota Baru</h5>
+                <h5 class="modal-title text-danger" id="newMenuModalLabel">Add Jam</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button> -->
             </div>
-            <form action="<?= base_url('menu'); ?>" method="post">
+            <form action="<?= base_url('data/jam'); ?>" method="post">
                 <div class="modal-body">
 
-                	<div class="row">
+                	<!-- <div class="row">
 
                 		<div class="col-8">
                 			<div class="form-group">
@@ -117,13 +117,13 @@
                         		<input type="text" class="form-control" id="dpw" name="dpw" placeholder="DPW">
                     		</div>
                 		</div>
-                	</div>
+                	</div> -->
 
-
-                	<div class="row">
+                	Underwear
+                	<!-- <div class="row">
                 		<div class="col">
                 			<div class="form-group">
-				                <!-- <label for="picture">Picture</label> -->
+				              
 				                
 				                        <div class="input">
 				                            <div class="custom-file">
@@ -134,7 +134,7 @@
 				                    
 				            </div>
                 		</div>
-                	</div>
+                	</div> -->
 
 
 
