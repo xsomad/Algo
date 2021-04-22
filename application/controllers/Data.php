@@ -12,9 +12,9 @@ class Data extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function anggota()
+    public function jam()
     {
-        $data['title'] = 'Data Anggota';
+        $data['title'] = 'Master Jam';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
  
         // $data['anggota'] = $this->db->get('anggota')->result_array();
@@ -25,7 +25,7 @@ class Data extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('anggota/index', $data);
+            $this->load->view('jam/index', $data);
             $this->load->view('templates/footer');
         // } else {
         //     $this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
@@ -34,7 +34,7 @@ class Data extends CI_Controller
         // }
     }
 
-    public function anggotaList()
+    public function jamList()
     {
     	// POST data dari view
     	$postData = $this->input->post();

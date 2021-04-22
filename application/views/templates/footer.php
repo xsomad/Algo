@@ -59,7 +59,7 @@
             <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
 
             
-            <script src="<?= base_url('assets/'); ?>js/myscript.js"></script>
+            <script src="<?= base_url('assets/'); ?>js/vscript.js"></script>
             
 
             

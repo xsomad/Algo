@@ -35,20 +35,20 @@ class Data_model extends CI_Model
      ## Search 
      $searchQuery = "";
      if($searchValue != ''){
-        $searchQuery = " (nama like '%".$searchValue."%' or nira  like '%".$searchValue."%' ) ";
+        $searchQuery = " (range_jam like '%".$searchValue."%' or sks  like '%".$searchValue."%' ) ";
      }
 
      ## Total number of records without filtering
      $this->db->select('count(*) as allcount');
 
-     $records = $this->db->get('anggota')->result();
+     $records = $this->db->get('jam2')->result();
      $totalRecords = $records[0]->allcount;
 
      ## Total number of record with filtering
      $this->db->select('count(*) as allcount');
      if($searchQuery != '')
         $this->db->where($searchQuery);
-     $records = $this->db->get('anggota')->result();
+     $records = $this->db->get('jam2')->result();
      $totalRecordwithFilter = $records[0]->allcount;
 
      
@@ -59,7 +59,7 @@ class Data_model extends CI_Model
         $this->db->where($searchQuery);
      $this->db->order_by($columnName, $columnSortOrder);
      $this->db->limit($rowperpage, $start);
-     $records = $this->db->get('anggota')->result();
+     $records = $this->db->get('jam2')->result();
 
      $data = array();
 
@@ -68,14 +68,10 @@ class Data_model extends CI_Model
 
         $data[] = array( 
            "no"=>$no++,
-           "nama"=>$record->nama,
-           "nira"=>$record->nira,
-           "alamat"=>$record->alamat,
-           // "Name"=>"$record->FirstName $record->MiddleName $record->LastName",
-           // "TTL"=>"$record->CityOfBirth, $record->DateOfBirth",
-           "dpp"=>$record->dpp,
-           "dpw"=>$record->dpw,
-           // "i_mas"=>$record->image_master,
+           "range_jam"=>$record->range_jam,
+           "sks"=>$record->sks,
+           "sesi"=>$record->sesi,
+           
           
            "Aksi" => "
            	<a href='#' class='badge badge-primary' data-toggle='modal' data-target='#detailAnggotaModal' data-placement='bottom' title='detail'><span class='fas fa-info'></span></a>
