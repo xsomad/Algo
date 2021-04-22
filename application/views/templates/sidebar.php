@@ -9,7 +9,7 @@
                     <!-- <img src="<?= base_url('assets/'); ?>img/logo/somad.jpg" class="img-fluid" alt="Responsive image" width="40px" height="40px"> -->
                     
                 </div>
-                <div class="sidebar-brand-text mx-3">SiAR</div>
+                <div class="sidebar-brand-text mx-3">SiPR</div>
             </a>
 
             <!-- Divider -->
