@@ -59,9 +59,18 @@
             <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
 
             
-            <script src="<?= base_url('assets/'); ?>js/vscript.js"></script>
             
-
+            <script src="<?= base_url('assets/'); ?>js/vhs.js"></script>
+            
+<!-- <script>
+    addEventListener('load', function myfuntion(){
+        alert ("halo")
+    })
+    function init() {
+        console.log('jalan ketika load');
+    }
+    init();
+</script> -->
             
 <script>
                 $('.custom-file-input').on('change', function() {
@@ -89,19 +98,7 @@
 
                 });
 
-                // $("#u_bar").on({
-                //      keydown: function(e) {
-                //        if (e.which === 32)
-                //          return false;
-                //       },
-                //       keyup: function(){
-                //        this.value = this.value.toLowerCase();
-                //       },
-                //       change: function() {
-                //         this.value = this.value.replace(/\s/g, "");
-                        
-                //       }
-                //     });
+                
 </script>
 
 <script language="javascript" type="text/javascript">
@@ -109,6 +106,8 @@
             return string.split(' ').join('');
         }
 </script>
+
+
             
 
 

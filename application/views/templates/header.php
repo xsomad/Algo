@@ -22,38 +22,7 @@
     <!-- table -->
     <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"/>
 
-    <style>
-        #map-canvas { width: 100%; height: 500px; padding: 0; }
-        #map-canvas1 { width: 100%; height: 500px; padding: 0; }
-    </style>
-
-
-
-<style>
-    .example-modal .modal {
-      position: relative;
-      top: auto;
-      bottom: auto;
-      right: auto;
-      left: auto;
-      display: block;
-      z-index: 1;
-    }
-
-    .example-modal .modal {
-      background: transparent !important;
-
-    }
-     #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-            height:1000px;
-            width: 100%;
-        }
-      /* Optional: Makes the sample page fill the window. */
-     #map-canvas { width: 100%; height: 300px; padding: 0; }
-     #map-canvas1 { width: 100%; height: 300px; padding: 0; }
-  </style>
-  
-  <script src="https://maps.googleapis.com/maps/api/js?key=&callback=Initialize" async defer></script>
+    
 
 </head>
 

@@ -17,21 +17,12 @@ class Data extends CI_Controller
         $data['title'] = 'Master Jam';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
  
-        // $data['anggota'] = $this->db->get('anggota')->result_array();
-        // $data['angg'] = $this->Data_model->GetAnggota();
-        // $this->form_validation->set_rules('menu', 'Menu', 'required');
-
-        // if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('jam/index', $data);
             $this->load->view('templates/footer');
-        // } else {
-        //     $this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
-        //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
-        //     redirect('menu');
-        // }
+        
     }
 
     public function jamList()
@@ -44,6 +35,33 @@ class Data extends CI_Controller
 
     	echo json_encode($data);
     	
+
+    }
+
+    public function hari()
+    {
+        $data['title'] = 'Master Hari';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+ 
+        
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('hari/index', $data);
+            $this->load->view('templates/footer');
+        
+    }
+
+    public function hariList()
+    {
+        // POST data dari view
+        $postData = $this->input->post();
+
+        // get data dari model
+        $data = $this->Data_model->getHariMaster($postData);
+        
+        echo json_encode($data);
+        
 
     }
 
