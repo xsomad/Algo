@@ -1,5 +1,7 @@
-addEventListener('load', function myfuntion(){
-        $('#hariTable').DataTable ({
+
+
+$(document).ready(function(){
+	$('#hariTable').DataTable ({
             'processing' : true,
             'serverSide' : true,
             'serverMethod' : 'post',
@@ -17,10 +19,9 @@ addEventListener('load', function myfuntion(){
                 
                 { data : 'Aksi'},
                 ]
-        }); 
+        });
 
-
-        $('#jamTable').DataTable ({
+		 $('#jamTable').DataTable ({
             'processing' : true,
             'serverSide' : true,
             'serverMethod' : 'post',
@@ -42,6 +43,26 @@ addEventListener('load', function myfuntion(){
                 ]
         }); 
 
+		 $('#taTable').DataTable ({
+            'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'post',
+            'ajax' : {
+                
+                type : "POST",
+                url:"taList"
+
+            },
+            'columns' : [
+                { data: null,"sortable": false, render: function (data, type, row, meta){
+                 return meta.row + meta.settings._iDisplayStart + 1;
+                }   },
+                { data: 'tahun' },
+                
+                ]
+        });
 
 
-    })
+
+
+});

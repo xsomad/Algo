@@ -60,7 +60,7 @@
 
             
             
-            <script src="<?= base_url('assets/'); ?>js/vhs.js"></script>
+            <script src="<?= base_url('assets/'); ?>js/vhs1.js"></script>
             
 <!-- <script>
     addEventListener('load', function myfuntion(){
@@ -107,7 +107,26 @@
         }
 </script>
 
+<!-- <script>
+    $('#taTable').DataTable ({
+            'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'post',
+            'ajax' : {
+                
+                type : "POST",
+                url:"taList"
 
+            },
+            'columns' : [
+                { data: null,"sortable": false, render: function (data, type, row, meta){
+                 return meta.row + meta.settings._iDisplayStart + 1;
+                }   },
+                { data: 'tahun' },
+                
+                ]
+        });
+</script> -->
             
 
 
