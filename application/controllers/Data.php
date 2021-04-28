@@ -114,6 +114,30 @@ class Data extends CI_Controller
         echo json_encode($data);
     }
 
+    public function ruangan()
+    {
+        $data['title'] = 'Master Ruangan';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+ 
+        
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('ruangan/index', $data);
+            $this->load->view('templates/footer');
+    }
+
+    public function ruangList()
+    {
+        // POST data dari view
+        $postData = $this->input->post();
+
+        // get data dari model
+        $data = $this->Data_model->getRuangMaster($postData);
+        
+        echo json_encode($data);
+    }
+
 
 
 

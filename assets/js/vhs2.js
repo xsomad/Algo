@@ -85,6 +85,28 @@ $(document).ready(function(){
                 ]
         });
 
+        $('#ruangTable').DataTable ({
+            'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'post',
+            'ajax' : {
+                
+                type : "POST",
+                url:"ruangList"
+
+            },
+            'columns' : [
+                { data: null,"sortable": false, render: function (data, type, row, meta){
+                 return meta.row + meta.settings._iDisplayStart + 1;
+                }   },
+                { data: 'id_ruang' },
+                { data: 'nama' },
+                { data: 'kapasitas' },
+                { data: 'jenis' },
+                { data : 'Aksi'},
+                ]
+        });
+
 
 
 
