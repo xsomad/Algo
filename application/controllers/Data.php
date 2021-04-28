@@ -65,7 +65,7 @@ class Data extends CI_Controller
 
     }
 
-     public function t_akademik()
+    public function t_akademik()
     {
         $data['title'] = 'Master Tahun Akademik';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -88,8 +88,30 @@ class Data extends CI_Controller
         $data = $this->Data_model->getTAMaster($postData);
         
         echo json_encode($data);
-        
+    }
 
+    public function dosen()
+    {
+        $data['title'] = 'Master Dosen';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+ 
+        
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('dosen/index', $data);
+            $this->load->view('templates/footer');
+    }
+
+     public function dosenList()
+    {
+        // POST data dari view
+        $postData = $this->input->post();
+
+        // get data dari model
+        $data = $this->Data_model->getDosenMaster($postData);
+        
+        echo json_encode($data);
     }
 
 

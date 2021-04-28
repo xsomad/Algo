@@ -236,6 +236,90 @@ class Data_model extends CI_Model
      return $response;
   }
 
+  public function getDosenMaster($postData=null)
+  {
+    $response = array();
+
+     ## Read value
+     $draw = $postData['draw'];
+     $start = $postData['start'];
+     $rowperpage = $postData['length']; // Rows display per page
+     $columnIndex = $postData['order'][0]['column']; // Column index
+     $columnName = $postData['columns'][$columnIndex]['data']; // Column name
+     $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
+     $searchValue = $postData['search']['value']; // Search value
+
+     ## Search 
+     $searchQuery = "";
+     if($searchValue != ''){
+        $searchQuery = " (nip like '%".$searchValue."%' or nama  like '%".$searchValue."%' or alamat  like '%".$searchValue."%' ) ";
+     }
+
+     ## Total number of records without filtering
+     $this->db->select('count(*) as allcount');
+
+     $records = $this->db->get('guru')->result();
+     $totalRecords = $records[0]->allcount;
+
+     ## Total number of record with filtering
+     $this->db->select('count(*) as allcount');
+     if($searchQuery != '')
+        $this->db->where($searchQuery);
+     $records = $this->db->get('guru')->result();
+     $totalRecordwithFilter = $records[0]->allcount;
+
+     
+     ## Fetch records
+     $this->db->select('*');
+     // $this->db->select("CONCAT(' ', FirstName, LastName) AS Name");
+     if($searchQuery != '')
+     $this->db->where($searchQuery);
+     $this->db->order_by($columnName, $columnSortOrder);
+     $this->db->limit($rowperpage, $start);
+     $this->db->select('guru.*', 'status_dosen.kode as kd', 'status_dosen.status');
+     $this->db->from('guru');
+     $this->db->join('status_dosen', 'guru.status_dosen=status_dosen.kode');
+     $records = $this->db->get()->result();
+
+     $data = array();
+
+     $no = 1;
+     foreach($records as $record ){
+
+        $data[] = array( 
+           "no"=>$no++,
+           "nip"=>$record->nip,
+           "nama"=>$record->nama,
+           "alamat"=>$record->alamat,
+           "telp"=>$record->telp,
+           "status_dosen"=> $record->status,
+           // "status_dosen"=> if ($record->status_dosen == "1") {"11"} else {"22"
+             # code...
+           // },
+           
+           // $record->status_dosen,           
+          
+           "Aksi" => "
+            <a href='#' class='badge badge-primary' data-toggle='modal' data-target='#detailAnggotaModal' data-placement='bottom' title='detail'><span class='fas fa-info'></span></a>
+            <a href='#' class='badge badge-warning' data-toggle='tooltip' data-placement='bottom' title='Edit'><span class='far fa-edit'></span></a>
+            <a href='#' class='badge badge-danger' data-toggle='tooltip' data-placement='bottom' title='Delete' onclick='return confirm('Are you sure want to delete?...');'><span class='far fa-trash-alt'></span></a>
+           "
+        ); 
+        
+     }
+
+     ## Response 
+     $response = array(
+        "draw" => intval($draw),
+        "iTotalRecords" => $totalRecords,
+        "iTotalDisplayRecords" => $totalRecordwithFilter,
+        "aaData" => $data
+     );
+     
+
+     return $response;
+  }
+
 
 
 
