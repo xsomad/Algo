@@ -138,6 +138,54 @@ class Data extends CI_Controller
         echo json_encode($data);
     }
 
+    public function typematkul()
+    {
+        $data['title'] = 'Master Type Matakuliah';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+ 
+        
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('typemapel/index', $data);
+            $this->load->view('templates/footer');
+    }
+
+    public function typeList()
+    {
+        // POST data dari view
+        $postData = $this->input->post();
+
+        // get data dari model
+        $data = $this->Data_model->getTypeMaster($postData);
+        
+        echo json_encode($data);
+    }
+
+    public function matkul()
+    {
+        $data['title'] = 'Master Matakuliah';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+ 
+        
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('matakuliah/index', $data);
+            $this->load->view('templates/footer');
+    }
+
+    public function matkulList()
+    {
+        // POST data dari view
+        $postData = $this->input->post();
+
+        // get data dari model
+        $data = $this->Data_model->getMatkulMaster($postData);
+        
+        echo json_encode($data);
+    }
+
 
 
 

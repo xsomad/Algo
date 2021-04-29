@@ -107,6 +107,53 @@ $(document).ready(function(){
                 ]
         });
 
+        $('#typeTable').DataTable ({
+            'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'post',
+            'ajax' : {
+                
+                type : "POST",
+                url:"typeList"
+
+            },
+            'columns' : [
+                { data: null,"sortable": false, render: function (data, type, row, meta){
+                 return meta.row + meta.settings._iDisplayStart + 1;
+                }   },
+                { data: 'keterangan' },
+                { data : 'Aksi'},
+                ]
+        });
+
+        $('#matkulTable').DataTable ({
+            'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'post',
+            'ajax' : {
+                
+                type : "POST",
+                url:"matkulList"
+
+            },
+            'columns' : [
+                { data: null,"sortable": false, render: function (data, type, row, meta){
+                 return meta.row + meta.settings._iDisplayStart + 1;
+                }   },
+                { data: 'nama_kode' },
+                { data: 'nama' },
+                { data: 'keterangan' },
+                { data: 'jenis' },
+                { data: 'semester' },
+                
+                { data : 'Aksi'},
+                ]
+        });
+
+
+
+
+
 
 
 
