@@ -36,8 +36,8 @@ $(document).ready(function(){
                  return meta.row + meta.settings._iDisplayStart + 1;
                 }   },
                 { data: 'range_jam' },
-                { data : 'sks' },
-                { data : 'sesi' },
+                // { data : 'sks' },
+                // { data : 'sesi' },
                 
                 { data : 'Aksi'},
                 ]

@@ -27,20 +27,20 @@ class Data_model extends CI_Model
      ## Search 
      $searchQuery = "";
      if($searchValue != ''){
-        $searchQuery = " (range_jam like '%".$searchValue."%' or sks  like '%".$searchValue."%' ) ";
+        $searchQuery = " (range_jam like '%".$searchValue."%' ) ";
      }
 
      ## Total number of records without filtering
      $this->db->select('count(*) as allcount');
 
-     $records = $this->db->get('jam2')->result();
+     $records = $this->db->get('jam')->result();
      $totalRecords = $records[0]->allcount;
 
      ## Total number of record with filtering
      $this->db->select('count(*) as allcount');
      if($searchQuery != '')
         $this->db->where($searchQuery);
-     $records = $this->db->get('jam2')->result();
+     $records = $this->db->get('jam')->result();
      $totalRecordwithFilter = $records[0]->allcount;
 
      
@@ -51,7 +51,7 @@ class Data_model extends CI_Model
         $this->db->where($searchQuery);
      $this->db->order_by($columnName, $columnSortOrder);
      $this->db->limit($rowperpage, $start);
-     $records = $this->db->get('jam2')->result();
+     $records = $this->db->get('jam')->result();
 
      $data = array();
 
@@ -61,8 +61,8 @@ class Data_model extends CI_Model
         $data[] = array( 
            "no"=>$no++,
            "range_jam"=>$record->range_jam,
-           "sks"=>$record->sks,
-           "sesi"=>$record->sesi,
+           // "sks"=>$record->sks,
+           // "sesi"=>$record->sesi,
            
           
            "Aksi" => "

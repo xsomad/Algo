@@ -22,8 +22,8 @@
                       <tr> 
                         <th width="10px">No</th>
                         <th>Range Jam</th>
-                        <th>SKS</th>
-                        <th>Sesi</th> 
+                        <!-- <th>SKS</th>
+                        <th>Sesi</th>  -->
                         
                         
                         <th width="50px">Aksi</th>
