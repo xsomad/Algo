@@ -518,11 +518,13 @@ class Data_model extends CI_Model
      $this->db->where($searchQuery);
      $this->db->order_by($columnName, $columnSortOrder);
      $this->db->limit($rowperpage, $start);
-     $this->db->select('matapelajaran.*', 'typepelajaran.*');
-     $this->db->from('matapelajaran');
-     $this->db->join('typepelajaran', 'matapelajaran.id_type=typepelajaran.idt');
-     // $this->db->join('jurusan', 'prodi.kode_jurusan=jurusan.kode');
+     $this->db->select('matapelajaran.*');
+     $this->db->from('matapelajaran', 'kelompokmk.*', 'typepelajaran.*');
+     $this->db->join('typepelajaran', 'matapelajaran.id_type=typepelajaran.idt', "left");
+     $this->db->join('kelompokmk', 'matapelajaran.id_kelompok=kelompokmk.idk');
+     // $this->db->join('kelompokmk', 'matapelajaran.id_kelompok=kelompokmk.idk', "left");
      $records = $this->db->get()->result();
+
 
      $data = array();
 
@@ -531,8 +533,10 @@ class Data_model extends CI_Model
 
         $data[] = array( 
            "no"=>$no++,
+           "nama_kelompok_mk"=>$record->nama_kelompok_mk,
            "nama_kode"=>$record->nama_kode,
            "nama"=>$record->nama,
+           
            "keterangan"=>$record->keterangan,
            "jenis"=>$record->jenis,
            "semester"=>$record->semester,
@@ -561,6 +565,88 @@ class Data_model extends CI_Model
      return $response;
   }
 
+  public function getKelMatkulMaster($postData=null)
+  {
+    $response = array();
+
+     ## Read value
+     $draw = $postData['draw'];
+     $start = $postData['start'];
+     $rowperpage = $postData['length']; // Rows display per page
+     $columnIndex = $postData['order'][0]['column']; // Column index
+     $columnName = $postData['columns'][$columnIndex]['data']; // Column name
+     $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
+     $searchValue = $postData['search']['value']; // Search value
+
+     ## Search 
+     $searchQuery = "";
+     if($searchValue != ''){
+        $searchQuery = " (nama_kelompok_mk like '%".$searchValue."%') ";
+     }
+
+     ## Total number of records without filtering
+     $this->db->select('count(*) as allcount');
+
+     $records = $this->db->get('kelompokmk')->result();
+     $totalRecords = $records[0]->allcount;
+
+     ## Total number of record with filtering
+     $this->db->select('count(*) as allcount');
+     if($searchQuery != '')
+        $this->db->where($searchQuery);
+     $records = $this->db->get('kelompokmk')->result();
+     $totalRecordwithFilter = $records[0]->allcount;
+
+     
+     ## Fetch records
+     $this->db->select('*');
+     // $this->db->select("CONCAT(' ', FirstName, LastName) AS Name");
+     if($searchQuery != '')
+     $this->db->where($searchQuery);
+     $this->db->order_by($columnName, $columnSortOrder);
+     $this->db->limit($rowperpage, $start);
+     // $this->db->select('*');
+     // $this->db->from('matapelajaran', 'kelompokmk.*', 'typepelajaran.*');
+     // $this->db->join('typepelajaran', 'matapelajaran.id_type=typepelajaran.idt', "left");
+     // $this->db->join('kelompokmk', 'matapelajaran.id_kelompok=kelompokmk.idk');
+     // $this->db->join('kelompokmk', 'matapelajaran.id_kelompok=kelompokmk.idk', "left");
+     $records = $this->db->get('kelompokmk')->result();
+
+
+     $data = array();
+
+     $no = 1;
+     foreach($records as $record ){
+
+        $data[] = array( 
+           "no"=>$no++,
+           "nama_kelompok_mk"=>$record->nama_kelompok_mk,
+           "ket_kelompok"=>$record->ket_kelompok,
+           
+           
+           
+                     
+          
+           "Aksi" => "
+            <a href='#' class='badge badge-primary' data-toggle='modal' data-target='#detailAnggotaModal' data-placement='bottom' title='detail'><span class='fas fa-info'></span></a>
+            <a href='#' class='badge badge-warning' data-toggle='tooltip' data-placement='bottom' title='Edit'><span class='far fa-edit'></span></a>
+            <a href='#' class='badge badge-danger' data-toggle='tooltip' data-placement='bottom' title='Delete' onclick='return confirm('Are you sure want to delete?...');'><span class='far fa-trash-alt'></span></a>
+           "
+        ); 
+        
+     }
+
+     ## Response 
+     $response = array(
+        "draw" => intval($draw),
+        "iTotalRecords" => $totalRecords,
+        "iTotalDisplayRecords" => $totalRecordwithFilter,
+        "aaData" => $data
+     );
+     
+
+     return $response;
+  }
 
 
 

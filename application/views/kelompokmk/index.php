@@ -7,23 +7,20 @@
  
  		<div class="card">
 		  <div class="card-header">
-		  	<a class="btn btn btn-outline-success" href="" data-toggle="modal" data-target="#newMapelModal">Tambah</a>
+		  	<a class="btn btn btn-outline-success" href="" data-toggle="modal" data-target="#newKelMapelModal">Tambah</a>
 		  	
 		    
 		  </div>
 		  <div class="card-body">
 		    <div class="table-responsive">
-                  <table id="matkulTable" class="table table-bordeless table-hover" width="100%"cellspacing="0">
+                  <table id="kelmatkulTable" class="table table-bordeless table-hover" width="100%"cellspacing="0">
                     <!-- <table id="empTable" class="display"> -->
                     <thead class="thead-light">
                       <tr> 
                         <th width="10px">No</th>
-                        <th>Kelompok</th>
-                        <th>Kode MatKul</th>
-                        <th>Nama</th>
-                        <th>Type</th>
-                        <th>Jenis</th>
-                        <th>Semester</th>
+                        <th width="100px">Kelompok</th>
+                        <th>Keterangan</th>
+                        
                         
                         <th width="50px">Aksi</th>
                       </tr>
@@ -49,11 +46,11 @@
 
 
 <!-- Modal add -->
-<div class="modal fade" id="newMapelModal" tabindex="-1" role="dialog" aria-labelledby="newMapelModalLabel" aria-hidden="true">
+<div class="modal fade" id="newKelMapelModal" tabindex="-1" role="dialog" aria-labelledby="newKelMapelModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger" id="newMapelModalLabel">Add Matakuliah</h5>
+                <h5 class="modal-title text-danger" id="newKelMapelModalLabel">Add Kelompok Matakuliah</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button> -->

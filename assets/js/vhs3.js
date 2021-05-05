@@ -140,8 +140,10 @@ $(document).ready(function(){
                 { data: null,"sortable": false, render: function (data, type, row, meta){
                  return meta.row + meta.settings._iDisplayStart + 1;
                 }   },
+                { data: 'nama_kelompok_mk'},
                 { data: 'nama_kode' },
                 { data: 'nama' },
+
                 { data: 'keterangan' },
                 { data: 'jenis' },
                 { data: 'semester' },
@@ -150,6 +152,27 @@ $(document).ready(function(){
                 ]
         });
 
+        $('#kelmatkulTable').DataTable ({
+            'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'post',
+            'ajax' : {
+                
+                type : "POST",
+                url:"kelmatkulList"
+
+            },
+            'columns' : [
+                { data: null,"sortable": false, render: function (data, type, row, meta){
+                 return meta.row + meta.settings._iDisplayStart + 1;
+                }   },
+                
+                { data: 'nama_kelompok_mk' },
+                { data: 'ket_kelompok' },
+               
+                { data : 'Aksi'},
+                ]
+        });
 
 
 

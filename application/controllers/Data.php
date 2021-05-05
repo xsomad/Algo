@@ -186,6 +186,30 @@ class Data extends CI_Controller
         echo json_encode($data);
     }
 
+    public function kelmatkul()
+    {
+        $data['title'] = 'Master Kelompok Matakuliah';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+ 
+        
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('kelompokmk/index', $data);
+            $this->load->view('templates/footer');
+    }
+
+    public function kelmatkulList()
+    {
+        // POST data dari view
+        $postData = $this->input->post();
+
+        // get data dari model
+        $data = $this->Data_model->getKelMatkulMaster($postData);
+        
+        echo json_encode($data);
+    }
+
 
 
 
