@@ -102,7 +102,28 @@ $(document).ready(function(){
                 { data: 'id_ruang' },
                 { data: 'nama' },
                 { data: 'kapasitas' },
-                { data: 'jenis' },
+                { data: 'type' },
+                { data: 'id_jenis' },
+                { data : 'Aksi'},
+                ]
+        });
+
+        $('#jenisruangTable').DataTable ({
+            'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'post',
+            'ajax' : {
+                
+                type : "POST",
+                url:"jenisruangList"
+
+            },
+            'columns' : [
+                { data: null,"sortable": false, render: function (data, type, row, meta){
+                 return meta.row + meta.settings._iDisplayStart + 1;
+                }   },
+                { data: 'nama_jenis' },
+                { data: 'ket_jenis' },
                 { data : 'Aksi'},
                 ]
         });

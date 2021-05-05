@@ -10,22 +10,19 @@
  
  		<div class="card">
 		  <div class="card-header">
-		  	<a class="btn btn btn-outline-success" href="" data-toggle="modal" data-target="#newRuanganModal">Tambah</a>
+		  	<a class="btn btn btn-outline-success" href="" data-toggle="modal" data-target="#newJenisRuanganModal">Tambah</a>
 		  	
 		    
 		  </div>
 		  <div class="card-body">
 		    <div class="table-responsive">
-                  <table id="ruangTable" class="table table-bordeless table-hover" width="100%"cellspacing="0">
+                  <table id="jenisruangTable" class="table table-bordeless table-hover" width="100%"cellspacing="0">
                     <!-- <table id="empTable" class="display"> -->
                     <thead class="thead-light">
                       <tr> 
                         <th width="10px">No</th>
-                        <th width="60px">Kode Ruangan</th>
-                        <th>Nama Ruangan</th>
-                        <th width="15px">kapasitas</th>
-                        <th>Type</th>
-                        <th>Jenis</th>
+                        <th width="60px">Nama</th>
+                        <th>Keterangan</th>
                         <!-- <th>Prodi</th> -->
                                                 
                         <th width="50px">Aksi</th>
@@ -52,11 +49,11 @@
 
 
 <!-- Modal add -->
-<div class="modal fade" id="newRuanganModal" tabindex="-1" role="dialog" aria-labelledby="newRuanganModalLabel" aria-hidden="true">
+<div class="modal fade" id="newJenisRuanganModal" tabindex="-1" role="dialog" aria-labelledby="newJenisRuanganModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger" id="newRuanganModalLabel">Add Ruangan</h5>
+                <h5 class="modal-title text-danger" id="newJenisRuanganModalLabel">Add Jenis Ruangan</h5>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button> -->
