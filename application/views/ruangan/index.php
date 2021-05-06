@@ -1,5 +1,5 @@
 
- 
+
 
 
 <!-- Begin Page Content -->
@@ -7,17 +7,17 @@
 
     <!-- Page Heading -->
     <h1 id="h1" class="h3 mb-4 text-primary"><?= $title; ?></h1>
- 
- 		<div class="card">
-		  <div class="card-header">
-		  	<a class="btn btn btn-outline-success" href="" data-toggle="modal" data-target="#newRuanganModal">Tambah</a>
-		  	
-		    
-		  </div>
-		  <div class="card-body">
-		    <div class="table-responsive">
-                  <table id="ruangTable" class="table table-bordeless table-hover" width="100%"cellspacing="0">
-                    <!-- <table id="empTable" class="display"> -->
+    
+    <div class="card">
+        <div class="card-header">
+           <a class="btn btn btn-outline-success" href="" data-toggle="modal" data-target="#newRuanganModal">Tambah</a>
+           
+           
+       </div>
+       <div class="card-body">
+          <div class="table-responsive">
+              <table id="ruangTable" class="table table-bordeless table-hover" width="100%"cellspacing="0">
+                <!-- <table id="empTable" class="display"> -->
                     <thead class="thead-light">
                       <tr> 
                         <th width="10px">No</th>
@@ -27,21 +27,21 @@
                         <th>Type</th>
                         <th>Jenis</th>
                         <!-- <th>Prodi</th> -->
-                                                
+                        
                         <th width="50px">Aksi</th>
-                      </tr>
-                    </thead>
-                    
-                    <!-- load barang -->
- 
-                    
-                  </table>
-                </div>
-		    
+                    </tr>
+                </thead>
+                
+                <!-- load barang -->
+                
+                
+            </table>
+        </div>
+        
 
-		  </div>
-		</div>
-  
+    </div>
+</div>
+
 
 
 </div>
